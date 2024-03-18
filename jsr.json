@@ -1,0 +1,5 @@
+{
+  "name": "@adam/confetti",
+  "version": "1.0.0",
+  "exports": "./src/confetti/confetti.ts"
+}
