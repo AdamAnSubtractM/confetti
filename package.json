@@ -22,5 +22,6 @@
       "airbnb-typescript/base",
       "prettier"
     ]
-  }
+  },
+  "packageManager": "pnpm"
 }
