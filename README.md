@@ -1,5 +1,7 @@
 # confetti
 
+Version: [![JSR](https://jsr.io/badges/@adam/confetti)](https://jsr.io/@adam/confetti) Score: [![JSR Score](https://jsr.io/badges/@adam/confetti/score)](https://jsr.io/@adam/confetti)
+
 A package that allows you to throw confetti on the page.
 
 ## Throwing confetti on the page
@@ -30,14 +32,18 @@ The throwConfetti function can also take an optional options object to control t
   - Allows a custom selector to be defined for where the canvas is appended.
 
 ```ts
-import { throwConfetti } from '@adam/confetti'
+import { throwConfetti, defaultCanvasStyles } from '@adam/confetti'
 
 const button = document.querySelector('#confetti-button')
 
 button.addEventListenter('click', () => {
   throwConfetti({
     canvasId: 'custom-canvas-id',
-    customStyles: { width: '500px', height: '500px' },
+    customStyles: {
+      ...defaultCanvasStyles,
+      width: '500px',
+      height: '500px',
+    },
     particleCount: 300,
     secondsUntilDeletion: 8,
     selectorToAppend: 'main',

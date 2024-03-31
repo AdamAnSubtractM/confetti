@@ -159,17 +159,25 @@ type ThrowConfettiOptions = {
  * @param options Optional settings object to configure how the confetti behaves.
  *
  * ```ts
+ * import { throwConfetti } from '@adam/confetti'
+ * 
  * throwConfetti()
  * ```
  *
  * ```ts
+ * import { throwConfetti, defaultCanvasStyles } from '@adam/confetti'
+ * 
  * throwConfetti({
- *  canvasId: "custom-canvas-id",
- *  customStyles: { width: "500px", height: "500px" },
- *  particleCount: 300,
- *  secondsUntilDeletion: 8,
- *  selectorToAppend: "main",
- * })
+    canvasId: 'custom-canvas-id',
+    customStyles: {
+      ...defaultCanvasStyles,
+      width: '500px',
+      height: '500px',
+    },
+    particleCount: 300,
+    secondsUntilDeletion: 8,
+    selectorToAppend: 'main',
+  })
  * ```
  */
 export const throwConfetti = function (options?: ThrowConfettiOptions) {
