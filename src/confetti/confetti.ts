@@ -190,7 +190,7 @@ export const throwConfetti = function (options?: ThrowConfettiOptions) {
     document.querySelector(options?.selectorToAppend || 'body')?.appendChild(canvas)
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight
-    Object.assign(canvas.style, options?.customStyles || {})
+    Object.assign(canvas.style, options?.customStyles || defaultCanvasStyles)
 
     setupCanvas(canvas, options)
   } else {
