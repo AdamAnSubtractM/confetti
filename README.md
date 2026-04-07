@@ -36,7 +36,7 @@ import { throwConfetti, defaultCanvasStyles } from '@adam/confetti'
 
 const button = document.querySelector('#confetti-button')
 
-button.addEventListenter('click', () => {
+button.addEventListener('click', () => {
   throwConfetti({
     canvasId: 'custom-canvas-id',
     customStyles: {
