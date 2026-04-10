@@ -28,7 +28,7 @@ type ConfettiParticleConfig = {
  * @param config - The required configuration to create a confetti particle.
  * @returns A confetti particle
  */
-const createConfettiParticle = function ({ canvas, ctx, color, size, velocity, x, y }: ConfettiParticleConfig) {
+const createConfettiParticle = function createConfettiParticle({ canvas, ctx, color, size, velocity, x, y }: ConfettiParticleConfig) {
   return {
     x,
     y,
@@ -64,9 +64,9 @@ type ConfettiParticlesSettings = Omit<ConfettiParticleConfig, 'color' | 'size' |
  * @param settings The confetti particles settings
  * @returns The an Array of confetti particle instances.
  */
-const createConfettiParticles = function ({ canvas, ctx, count }: ConfettiParticlesSettings) {
+const createConfettiParticles = function createConfettiParticles({ canvas, ctx, count }: ConfettiParticlesSettings) {
   const particles = []
-  for (let i = 0; i < count; i++) {
+  for (let i = 0; i < count; i += 1) {
     const particleSettings = {
       canvas,
       ctx,
@@ -92,7 +92,7 @@ type AnimateConfettiParticlesSettings = Omit<ConfettiParticleConfig, 'color' | '
  * Animates the confetti particles on the canvas.
  * @param settings The animation settings for the confetti.
  */
-const animateConfettiParticles = function ({ canvas, ctx, particles }: AnimateConfettiParticlesSettings) {
+const animateConfettiParticles = function animateConfettiParticles({ canvas, ctx, particles }: AnimateConfettiParticlesSettings) {
   ctx.clearRect(0, 0, canvas.width, canvas.height)
   particles.forEach((particle) => {
     particle.update()
@@ -105,7 +105,7 @@ const animateConfettiParticles = function ({ canvas, ctx, particles }: AnimateCo
  * Deletes the canvas that was used to generate the confetti.
  * @param canvas The canvas that has the confetti.
  */
-const deleteCanvas = function (canvas: HTMLCanvasElement) {
+const deleteCanvas = function deleteCanvas(canvas: HTMLCanvasElement) {
   canvas.remove()
 }
 
@@ -180,7 +180,7 @@ type ThrowConfettiOptions = {
   })
  * ```
  */
-export const throwConfetti = function (options?: ThrowConfettiOptions) {
+export const throwConfetti = function throwConfetti(options?: ThrowConfettiOptions): void {
   const canvasId = options?.canvasId || 'confetti-canvas'
   let canvas: HTMLCanvasElement | null = document.querySelector(`#${canvasId}`)
 
